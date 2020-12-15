@@ -1,5 +1,5 @@
 import React from 'react';
-// import * as BooksAPI from './BooksAPI';
+import * as BooksAPI from './BooksAPI';
 import { Route } from "react-router-dom";
 import './App.css';
 import Search from './Components/Search';
@@ -7,7 +7,7 @@ import ListShelves from './Components/ListShelves';
 
 class BooksApp extends React.Component {
   state = {
-    books: []
+    books: [],
     bookshelves = [{
         currentlyReading: {
           name: 'Currently Reading',
