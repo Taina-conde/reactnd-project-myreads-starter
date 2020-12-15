@@ -8,9 +8,9 @@ function BookShelf (props) {
                 <h2 className="bookshelf-title">{props.bookshelfTitle}}</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                      {props.books.map( bood => (
+                      {props.books.map( book => (
                           <Book
-                            
+
                           />
                       ))}
                     </ol>
