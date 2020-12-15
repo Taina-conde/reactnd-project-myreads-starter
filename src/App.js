@@ -7,6 +7,25 @@ import ListShelves from './Components/ListShelves';
 
 class BooksApp extends React.Component {
   state = {
+    bookshelves = [{
+        currentlyReading: {
+          name: 'Currently Reading',
+          books: []
+        }
+      },
+     {
+       wantToRead: {
+         name: "Want to Read",
+         books: []
+       }
+     },
+     {
+       read: {
+         name: "Read",
+         books: []
+       }
+     }
+    ]
     /**
      * TODO: Instead of using this state variable to keep track of which page
      * we're on, use the URL in the browser's address bar. This will ensure that
@@ -23,13 +42,17 @@ class BooksApp extends React.Component {
           path = "/"
           render = {() => (
             <ListShelves
+              bookshelves = {this.state.bookshelves}
+
             />
           ) }
         />
         <Route
           exact path = '/search'
           render = {()=> (
-            <Search/>
+            <Search
+              bookshelves = {this.state.bookshelves}
+            />
           )}
         />
        
