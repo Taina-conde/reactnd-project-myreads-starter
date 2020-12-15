@@ -7,6 +7,7 @@ import ListShelves from './Components/ListShelves';
 
 class BooksApp extends React.Component {
   state = {
+    books: []
     bookshelves = [{
         currentlyReading: {
           name: 'Currently Reading',
@@ -33,6 +34,15 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     
+  }
+  componentDidMount() {
+    BooksAPI.getAll()
+      .then((books) => {
+        this.setState(() => ({
+          books
+        }))
+      })
+
   }
 
   render() {
