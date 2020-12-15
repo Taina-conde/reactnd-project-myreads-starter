@@ -8,22 +8,22 @@ import ListShelves from './Components/ListShelves';
 class BooksApp extends React.Component {
   state = {
     books: [],
-    bookshelves = [{
+    bookshelves : [{
         currentlyReading: {
           name: 'Currently Reading',
-          books: []
+          booksInShelf: []
         }
       },
      {
        wantToRead: {
          name: "Want to Read",
-         books: []
+         booksInShelf: []
        }
      },
      {
        read: {
          name: "Read",
-         books: []
+         booksInShelf: []
        }
      }
     ]
@@ -53,6 +53,7 @@ class BooksApp extends React.Component {
           render = {() => (
             <ListShelves
               bookshelves = {this.state.bookshelves}
+              books = {this.state.books}
 
             />
           ) }
@@ -62,6 +63,7 @@ class BooksApp extends React.Component {
           render = {()=> (
             <Search
               bookshelves = {this.state.bookshelves}
+              books = {this.state.books}
             />
           )}
         />
