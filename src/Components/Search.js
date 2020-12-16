@@ -43,7 +43,13 @@ class Search extends React.Component {
                     <div className="search-books-results">
                         <ol className="books-grid">
                             {}
-                            {query && books.map( book => {
+                            {query && books.filter( book => {
+                                const title = book.title.toLowerCase();
+                                const authorsString = book.authors.length > 1 ? book.authors.join(", ").toLowerCase() : book.authors[0];
+
+
+                                return title.includes(query.toLowerCase()) || authorsString.includes(query.toLowerCase());
+                            }).map( book => {
                                 console.log(book);
                                 return (
                                     <Book
