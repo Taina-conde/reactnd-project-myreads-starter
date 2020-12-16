@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import './App.css';
 import Search from './Components/Search';
 import ListShelves from './Components/ListShelves';
+import OpenSearchButton from './Components/OpenSearchButton';
 
 class BooksApp extends React.Component {
   state = {
@@ -55,11 +56,14 @@ class BooksApp extends React.Component {
         <Route
           path = "/"
           render = {() => (
-            <ListShelves
-              bookshelves = {this.state.bookshelves}
-              books = {this.state.books}
+            <div>
+              <ListShelves
+                bookshelves = {this.state.bookshelves}
+                books = {this.state.books}
 
-            />
+              />
+              <OpenSearchButton/>
+            </div>
           ) }
         />
         <Route
