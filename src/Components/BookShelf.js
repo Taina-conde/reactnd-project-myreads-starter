@@ -5,10 +5,10 @@ function BookShelf (props) {
     return (
         <div>
             <div className="bookshelf">
-                <h2 className="bookshelf-title">{props.bookshelfTitle}</h2>
+                <h2 className="bookshelf-title">titulo {props.bookshelfTitle}</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                      {props.books.map( book => (
+                      {props.bookshelfBooks && props.bookshelfBooks.map( book => (
                           <Book
 
                           />
