@@ -10,7 +10,7 @@ class ListShelves extends React.Component {
                   <h1>MyReads</h1>
                 </div>
                 <div className="list-books-content">
-                  {this.props.map(bookshelf => (
+                  {this.props.bookshelves.map(bookshelf => (
                     <BookShelf
                       bookshelfTitle = {bookshelf.name}
                       bookshelfBooks = {bookshelf.books}
