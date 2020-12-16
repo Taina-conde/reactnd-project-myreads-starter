@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 
 function OpenSearchButton(props) {
     return(
-        <div className="open-search">
-            <Link to  = "/search">Add a book</Link>
+        <div>
+            <Link to  = "/search" >
+                <div className = "open-search">
+                    <button>Add book</button>
+                </div>
+            </Link>
         </div>
     )
 }
