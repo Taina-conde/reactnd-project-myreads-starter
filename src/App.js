@@ -31,6 +31,7 @@ class BooksApp extends React.Component {
      */
     
   }
+
   componentDidMount() {
     BooksAPI.getAll()
       .then((books) => {
@@ -46,10 +47,21 @@ class BooksApp extends React.Component {
     BooksAPI.search(query)
       .then((books) => {
         this.setState(() => ({
-          books
+          
         }))
       })
   }
+
+  updateBookshelf = (bookId, shelf) => {
+    BooksAPI.update(bookId, shelf)
+      .then((bookshelves) => {
+        console.log(bookshelves);
+        
+
+      })
+      
+  }
+
 
   render() {
     return (
@@ -61,6 +73,7 @@ class BooksApp extends React.Component {
               <ListShelves
                 bookshelves = {this.state.bookshelves}
                 books = {this.state.books}
+                onUpdateBookshelf = {this.updateBookshelf}
 
               />
               <OpenSearchButton/>
@@ -74,6 +87,7 @@ class BooksApp extends React.Component {
               bookshelves = {this.state.bookshelves}
               books = {this.state.books}
               onSearchBooks = {this.searchBooks}
+              onUpdateBookshelf = {this.updateBookshelf}
             />
           )}
         />

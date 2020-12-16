@@ -47,17 +47,17 @@ class Search extends React.Component {
                                 const title = book.title.toLowerCase();
                                 const authorsString = book.authors.length > 1 ? book.authors.join(", ").toLowerCase() : book.authors[0].toLowerCase();
                                 return title.includes(query.toLowerCase()) || authorsString.includes(query.toLowerCase());
-                            }).map( book => {
-                                console.log(book);
-                                return (
+                            }).map( book => (
                                     <Book
                                         key = {book.id}
+                                        bookId ={book.id}
                                         bookAuthors = {book.authors}
                                         bookTitle = {book.title}
                                         bookCover = {book.imageLinks.smallThumbnail}
+                                        onUpdateBookshelf = {this.props.onUpdateBookshelf}
                                     />
                                 )
-                            })}
+                            )}
                         </ol>
                     </div>
                 </div>

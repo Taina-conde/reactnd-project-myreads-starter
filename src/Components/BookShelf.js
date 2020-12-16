@@ -11,9 +11,11 @@ function BookShelf (props) {
                       {props.bookshelfBooks && props.bookshelfBooks.map( book => (
                           <Book
                             key= {book.id}
+                            bookId = {book.id}
                             bookAuthors = {book.authors}
                             bookTitle = {book.title}
                             bookCover = {book.imageLinks.smallThumbnail}
+                            onUpdateBookshelf = {props.onUpdateBookshelf}
                           />
                       ))}
                     </ol>

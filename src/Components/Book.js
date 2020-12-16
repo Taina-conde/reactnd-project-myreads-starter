@@ -10,6 +10,14 @@ class Book extends Component {
         }))
         
     }
+    componentDidUpdate(prevProps, prevState) {
+        const bookId = this.props.bookId;
+        console.log(bookId)
+        const shelf = this.state.value;
+        console.log(shelf)
+        this.props.onUpdateBookshelf(bookId, shelf)
+        
+    }
     render() {
         const { bookAuthors, bookTitle, bookCover } = this.props;
         const authors = bookAuthors.length > 1 ? bookAuthors.join(", ") : bookAuthors; 
