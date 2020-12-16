@@ -10,6 +10,7 @@ function BookShelf (props) {
                     <ol className="books-grid">
                       {props.bookshelfBooks && props.bookshelfBooks.map( book => (
                           <Book
+                            key= {book.id}
 
                           />
                       ))}
