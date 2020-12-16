@@ -45,9 +45,7 @@ class Search extends React.Component {
                             {}
                             {query && books.filter( book => {
                                 const title = book.title.toLowerCase();
-                                const authorsString = book.authors.length > 1 ? book.authors.join(", ").toLowerCase() : book.authors[0];
-
-
+                                const authorsString = book.authors.length > 1 ? book.authors.join(", ").toLowerCase() : book.authors[0].toLowerCase();
                                 return title.includes(query.toLowerCase()) || authorsString.includes(query.toLowerCase());
                             }).map( book => {
                                 console.log(book);
