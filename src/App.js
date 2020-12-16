@@ -8,23 +8,18 @@ import ListShelves from './Components/ListShelves';
 class BooksApp extends React.Component {
   state = {
     books: [],
-    bookshelves : [{
-        currentlyReading: {
-          name: 'Currently Reading',
-          booksInShelf: []
-        }
+    bookshelves : [
+      {  
+        name: 'Currently Reading',
+        booksInShelf: []
       },
-     {
-       wantToRead: {
-         name: "Want to Read",
-         booksInShelf: []
-       }
+     {    
+        name: "Want to Read",
+        booksInShelf: []
      },
      {
-       read: {
-         name: "Read",
-         booksInShelf: []
-       }
+        name: "Read",
+        booksInShelf: []
      }
     ]
     /**
