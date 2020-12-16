@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Book from './Book';
 
 class Search extends React.Component {
     state = {
@@ -11,6 +12,8 @@ class Search extends React.Component {
         }))
     }
     render() {
+        const { bookshelves, books, onSearchBooks } = this.props;
+        const { query } = this.state;
         return (
             <div>
                 <div className="search-books">
@@ -31,7 +34,7 @@ class Search extends React.Component {
                             <input 
                                 type="text" 
                                 placeholder="Search by title or author"
-                                value = {this.state.query}
+                                value = {query}
                                 onChange = {(event)=> this.handleChange(event.target.value)} 
                                 />
 
@@ -40,6 +43,17 @@ class Search extends React.Component {
                     <div className="search-books-results">
                         <ol className="books-grid">
                             {}
+                            {query && books.map( book => {
+                                console.log(book);
+                                return (
+                                    <Book
+                                        key = {book.id}
+                                        bookAuthor = {book.authors}
+                                        bookTitle = {book.title}
+                                        bookCover = {book.imageLinks.smallThumbnail}
+                                    />
+                                )
+                            })}
                         </ol>
                     </div>
                 </div>
