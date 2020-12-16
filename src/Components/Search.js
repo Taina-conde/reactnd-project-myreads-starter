@@ -5,6 +5,11 @@ class Search extends React.Component {
     state = {
         query: ""
     }
+    handleChange = query => {
+        this.setState(() => ({
+            query: query.trim()
+        }))
+    }
     render() {
         return (
             <div>
@@ -23,12 +28,19 @@ class Search extends React.Component {
                             However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                             you don't find a specific author or title. Every search is limited by search terms.
                             */}
-                            <input type="text" placeholder="Search by title or author"/>
+                            <input 
+                                type="text" 
+                                placeholder="Search by title or author"
+                                value = {this.state.query}
+                                onChange = {(event)=> this.handleChange(event.target.value)} 
+                                />
 
                         </div>
                     </div>
                     <div className="search-books-results">
-                        <ol className="books-grid"></ol>
+                        <ol className="books-grid">
+                            {}
+                        </ol>
                     </div>
                 </div>
             </div>
