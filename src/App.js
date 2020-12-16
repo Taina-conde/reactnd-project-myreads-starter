@@ -8,13 +8,16 @@ import OpenSearchButton from './Components/OpenSearchButton';
 
 class BooksApp extends React.Component {
   state = {
-    books: [],
+    booksInShelves: [],
+    booksSearch : [],
     bookshelves : [
-      {  
+      { 
+        shelf: 'currentlyReading', 
         name: 'Currently Reading',
         booksInShelf: []
       },
-     {    
+     {  
+
         name: "Want to Read",
         booksInShelf: []
      },
@@ -34,20 +37,19 @@ class BooksApp extends React.Component {
 
   componentDidMount() {
     BooksAPI.getAll()
-      .then((books) => {
+      .then((booksInShelves) => {
         this.setState(() => ({
-          books
+          booksInShelves
         }))
-
       })
 
   }
 
   searchBooks = (query) => {
     BooksAPI.search(query)
-      .then((books) => {
-        this.setState(() => ({
-          
+      .then((booksSearch) => {
+        this.setState(()=>({
+          booksSearch
         }))
       })
   }
@@ -72,7 +74,7 @@ class BooksApp extends React.Component {
             <div>
               <ListShelves
                 bookshelves = {this.state.bookshelves}
-                books = {this.state.books}
+                books = {this.state.booksInShelves}
                 onUpdateBookshelf = {this.updateBookshelf}
 
               />
@@ -85,7 +87,7 @@ class BooksApp extends React.Component {
           render = {()=> (
             <Search
               bookshelves = {this.state.bookshelves}
-              books = {this.state.books}
+              books = {this.state.booksSearch}
               onSearchBooks = {this.searchBooks}
               onUpdateBookshelf = {this.updateBookshelf}
             />

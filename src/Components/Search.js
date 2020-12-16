@@ -11,6 +11,10 @@ class Search extends React.Component {
             query: query.trim()
         }))
     }
+    handleSubmit = event => {
+        event.preventDefault();
+        this.state.query && this.props.onSearchBooks(this.state.query)
+    }
     render() {
         const { bookshelves, books, onSearchBooks } = this.props;
         const { query } = this.state;
@@ -21,33 +25,23 @@ class Search extends React.Component {
                         <Link to = "/">
                             <button className="close-search">Close</button>
                         </Link>
-                        
-                        <div className="search-books-input-wrapper">
-                            {/*
-                            NOTES: The search from BooksAPI is limited to a particular set of search terms.
-                            You can find these search terms here:
-                            https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
 
-                            However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-                            you don't find a specific author or title. Every search is limited by search terms.
-                            */}
-                            <input 
-                                type="text" 
-                                placeholder="Search by title or author"
-                                value = {query}
-                                onChange = {(event)=> this.handleChange(event.target.value)} 
-                                />
+                        <form onSubmit= {this.handleSubmit}>
+                            <div className="search-books-input-wrapper">
+                                <input 
+                                    type="text" 
+                                    placeholder="Search by title or author"
+                                    value = {query}
+                                    onChange = {(event)=> this.handleChange(event.target.value)} 
+                                    />
 
-                        </div>
+                            </div>
+                        </form>
                     </div>
                     <div className="search-books-results">
                         <ol className="books-grid">
                             {}
-                            {query && books.filter( book => {
-                                const title = book.title.toLowerCase();
-                                const authorsString = book.authors.length > 1 ? book.authors.join(", ").toLowerCase() : book.authors[0].toLowerCase();
-                                return title.includes(query.toLowerCase()) || authorsString.includes(query.toLowerCase());
-                            }).map( book => (
+                            {query && books.map( book => (
                                     <Book
                                         key = {book.id}
                                         bookId ={book.id}
