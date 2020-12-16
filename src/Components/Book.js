@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 class Book extends Component {
     render() {
-        const { bookAuthor, bookTitle, bookCover } = this.props;
-        console.log(bookCover)
+        const { bookAuthors, bookTitle, bookCover } = this.props;
+        const authors = bookAuthors.length > 1 ? bookAuthors.join(", ") : bookAuthors; 
         return (
             <div>
                 <li>
@@ -21,7 +21,7 @@ class Book extends Component {
                             </div>
                         </div>
                         <div className="book-title">{bookTitle}</div>
-                        <div className="book-authors">{bookAuthor}</div>
+                        <div className="book-authors">{authors}</div>
                     </div>     
                 </li>
             </div>
