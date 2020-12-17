@@ -12,16 +12,17 @@ class BooksApp extends React.Component {
     booksSearch : [],
     bookshelves : [
       { 
-         
+        id : "currentlyReading", 
         name: 'Currently Reading',
         currentlyReading: [],
       },
      {  
-        
+        id: "wantToRead",
         name: "Want to Read",
         wantToRead: [],
      },
      {
+        id: "read",
         name: "Read",
         read: []
      }
@@ -42,8 +43,10 @@ class BooksApp extends React.Component {
           booksInShelves
         }))
       })
-
+    
   }
+ 
+ 
 
   searchBooks = (query) => {
     BooksAPI.search(query)
@@ -56,16 +59,10 @@ class BooksApp extends React.Component {
 
   updateBookshelf = (bookId, shelf) => {
     BooksAPI.update(bookId, shelf)
-      .then((bookshelves) => {
-        const currentlyReading = bookshelves.currentlyReading;
-        const wantToRead = bookshelves.wantToRead;
-        const read = bookshelves.read;
-        console.log(bookshelves);
-        this.setState(()=> ({
-          bookshelves: {
-            
-          }
-        }))
+      .then((res) => {
+
+        console.log(res);
+        
         
 
       })

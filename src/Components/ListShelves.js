@@ -2,7 +2,9 @@ import React from 'react';
 import BookShelf from './BookShelf';
 
 class ListShelves extends React.Component {
+  
     render() {
+      const {books, bookshelves} = this.props;
         return (
             <div>
               <div className="list-books">
@@ -10,13 +12,21 @@ class ListShelves extends React.Component {
                   <h1>MyReads</h1>
                 </div>
                 <div className="list-books-content">
-                  {this.props.bookshelves.map( (bookshelf, index) =>(
-                    <BookShelf
-                      key = {index}
-                      bookshelfTitle = {bookshelf.name}
-                      bookshelfBooks = {bookshelf.booksInShelf}
-                    />
-                  ))}
+                  {bookshelves.map( (bookshelf, index) =>{
+                    
+                    const booksInShelf = books.filter((book)=> (
+                      book.shelf === bookshelf.id && book
+                    ))
+                    console.log(booksInShelf)
+                    
+                    return (
+                      <BookShelf
+                        key = {index}
+                        bookshelfTitle = {bookshelf.name}
+                        bookshelfBooks = {booksInShelf}
+                      />
+                    )
+                    })}
                 </div>
               </div>
   
