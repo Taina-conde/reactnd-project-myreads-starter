@@ -45,6 +45,7 @@ class Search extends React.Component {
                                     <Book
                                         key = {book.id}
                                         bookId ={book.id}
+                                        book = {book}
                                         bookAuthors = {book.authors}
                                         bookTitle = {book.title}
                                         bookCover = {book.imageLinks.smallThumbnail}
