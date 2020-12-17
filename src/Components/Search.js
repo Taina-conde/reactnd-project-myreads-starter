@@ -14,9 +14,12 @@ class Search extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         this.state.query && this.props.onSearchBooks(this.state.query)
+        this.setState({
+            query: ""
+        })
     }
     render() {
-        const { bookshelves, books, onSearchBooks } = this.props;
+        const { books } = this.props;
         const { query } = this.state;
         return (
             <div>
@@ -41,18 +44,16 @@ class Search extends React.Component {
                     <div className="search-books-results">
                         <ol className="books-grid">
                             {}
-                            {query && books.map( book => (
+                            {books.length > 0 ? books.map( book => (
                                     <Book
                                         key = {book.id}
-                                        bookId ={book.id}
                                         book = {book}
-                                        bookAuthors = {book.authors}
-                                        bookTitle = {book.title}
-                                        bookCover = {book.imageLinks.smallThumbnail}
+
+
                                         onUpdateBookshelf = {this.props.onUpdateBookshelf}
                                     />
                                 )
-                            )}
+                            ): console.log(books)}
                         </ol>
                     </div>
                 </div>

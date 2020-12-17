@@ -60,8 +60,10 @@ class BooksApp extends React.Component {
   updateBookshelf = (book, shelf) => {
     BooksAPI.update(book, shelf)
       .then((res) => {
-
         console.log(res);
+        this.setState({
+          bookshelves: [{currentlyReading: res.currentlyReading}, {wantToRead: res.wantToRead}, {read: res.read}]
+        })
         
         
 
