@@ -43,8 +43,8 @@ class Search extends React.Component {
                     </div>
                     <div className="search-books-results">
                         <ol className="books-grid">
-                            {}
-                            {books.length > 0 ? books.map( book => (
+
+                            {books.length > 0 && books.map( book => (
                                     <Book
                                         key = {book.id}
                                         book = {book}
@@ -53,7 +53,7 @@ class Search extends React.Component {
                                         onUpdateBookshelf = {this.props.onUpdateBookshelf}
                                     />
                                 )
-                            ): console.log(books)}
+                            )}
                         </ol>
                     </div>
                 </div>

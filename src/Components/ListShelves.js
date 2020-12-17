@@ -13,7 +13,6 @@ class ListShelves extends React.Component {
                 </div>
                 <div className="list-books-content">
                   {bookshelves.map( (bookshelf, index) =>{
-                    
                     const booksInShelf = books.filter((book)=> (
                       book.shelf === bookshelf.id && book
                     ))
