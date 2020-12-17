@@ -12,18 +12,18 @@ class BooksApp extends React.Component {
     booksSearch : [],
     bookshelves : [
       { 
-        shelf: 'currentlyReading', 
+         
         name: 'Currently Reading',
-        booksInShelf: []
+        currentlyReading: [],
       },
      {  
-
+        
         name: "Want to Read",
-        booksInShelf: []
+        wantToRead: [],
      },
      {
         name: "Read",
-        booksInShelf: []
+        read: []
      }
     ]
     /**
@@ -57,7 +57,15 @@ class BooksApp extends React.Component {
   updateBookshelf = (bookId, shelf) => {
     BooksAPI.update(bookId, shelf)
       .then((bookshelves) => {
+        const currentlyReading = bookshelves.currentlyReading;
+        const wantToRead = bookshelves.wantToRead;
+        const read = bookshelves.read;
         console.log(bookshelves);
+        this.setState(()=> ({
+          bookshelves: {
+            
+          }
+        }))
         
 
       })
