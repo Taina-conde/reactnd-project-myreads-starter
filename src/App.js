@@ -46,17 +46,7 @@ class BooksApp extends React.Component {
     
   }
  
-  updateBooks = (book, shelf) => {
-    BooksAPI.update(book, shelf)
-    .then((res) => {
-      console.log(res);
-      this.setState({
-        bookshelves: [{currentlyReading: res.currentlyReading}, {wantToRead: res.wantToRead}, {read: res.read}]
-      })
 
-
-     })
-}
 
   searchBooks = (query) => {
     BooksAPI.search(query)
@@ -70,10 +60,20 @@ class BooksApp extends React.Component {
   updateBookshelf = (book, shelf) => {
     BooksAPI.update(book, shelf)
       .then((res) => {
-        console.log(res);
-        this.setState({
-          bookshelves: [{currentlyReading: res.currentlyReading}, {wantToRead: res.wantToRead}, {read: res.read}]
-        })
+        this.setState((currState)=> ({
+          bookshelves: [{
+            ...currState.bookshelves[0], 
+            currentlyReading : res.currentlyReading
+          }, 
+          {
+            ...currState.bookshelves[1], 
+            wantToRead: res.wantToRead
+          }, 
+          {
+            ...currState.bookshelves[2], 
+            read: res.read
+          }]
+        }))
         
         
 
@@ -91,7 +91,7 @@ class BooksApp extends React.Component {
             <div>
               <ListShelves
                 bookshelves = {this.state.bookshelves}
-                books = {this.state.booksInShelves}
+                booksInShelves = {this.state.booksInShelves}
                 onUpdateBookshelf = {this.updateBookshelf}
 
               />

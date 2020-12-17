@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 class Book extends Component {
     state = {
-        value: ""
+        value: this.props.shelf
     }
     
     handleSelect = value => {
@@ -11,9 +11,9 @@ class Book extends Component {
             value: value
         }, function () {
             const book = this.props.book;
-            console.log(book);
+            
             const shelf = this.state.value;
-            console.log(shelf);
+            
             this.props.onUpdateBookshelf(book, shelf)
         })
         

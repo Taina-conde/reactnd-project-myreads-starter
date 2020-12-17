@@ -13,6 +13,7 @@ function BookShelf (props) {
                             key= {book.id}
                             bookId = {book.id}
                             book = {book}
+                            shelf = {book.shelf}
                             bookAuthors = {book.authors}
                             bookTitle = {book.title}
                             bookCover = {book.imageLinks.smallThumbnail}
