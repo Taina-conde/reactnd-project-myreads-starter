@@ -46,7 +46,17 @@ class BooksApp extends React.Component {
     
   }
  
- 
+  updateBooks = (book, shelf) => {
+    BooksAPI.update(book, shelf)
+    .then((res) => {
+      console.log(res);
+      this.setState({
+        bookshelves: [{currentlyReading: res.currentlyReading}, {wantToRead: res.wantToRead}, {read: res.read}]
+      })
+
+
+     })
+}
 
   searchBooks = (query) => {
     BooksAPI.search(query)
