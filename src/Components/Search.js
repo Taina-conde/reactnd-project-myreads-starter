@@ -9,7 +9,7 @@ class Search extends React.Component {
     
     handleChange = query => {
         this.setState(() => ({
-            query: query.trim()
+            query: query
         }), () => {
             this.state.query ? 
                 this.props.onSearchBooks(this.state.query) : 
@@ -65,7 +65,6 @@ class Search extends React.Component {
                                         return  
                                     }
                                     shelf = bookInShelf[1]
-                                    console.log(shelf)
                                     })
                                 return  (
                                     <Book
