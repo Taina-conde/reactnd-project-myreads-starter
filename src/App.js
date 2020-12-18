@@ -13,26 +13,18 @@ class BooksApp extends React.Component {
     bookshelves : [
       { 
         id : "currentlyReading", 
-        name: 'Currently Reading',
-        currentlyReading: [],
+        name: 'Currently Reading',     
       },
      {  
         id: "wantToRead",
-        name: "Want to Read",
-        wantToRead: [],
+        name: "Want to Read",     
      },
      {
         id: "read",
         name: "Read",
-        read: []
      }
     ]
-    /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
+  
     
   }
 
@@ -60,20 +52,12 @@ class BooksApp extends React.Component {
   updateBookshelf = (book, shelf) => {
     BooksAPI.update(book, shelf)
       .then((res) => {
-        this.setState((currState)=> ({
-          bookshelves: [{
-            ...currState.bookshelves[0], 
-            currentlyReading : res.currentlyReading
-          }, 
-          {
-            ...currState.bookshelves[1], 
-            wantToRead: res.wantToRead
-          }, 
-          {
-            ...currState.bookshelves[2], 
-            read: res.read
-          }]
+        BooksAPI.getAll()
+          .then((booksInShelves) => {
+            this.setState(() => ({
+            booksInShelves
         }))
+      })
         
         
 
