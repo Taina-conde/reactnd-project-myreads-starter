@@ -23,8 +23,17 @@ class Search extends React.Component {
         this.props.onHandleClick(e);
     }
     render() {
-        const { books } = this.props;
+        const { booksInShelves, books } = this.props;
         const { query } = this.state;
+        const booksInShelvesIds = booksInShelves.map( book => {
+            const id = book.id;
+            const shelf = book.shelf;
+            const bookObj = {
+                id: id,
+                shelf: shelf
+            };
+            return bookObj
+        });
         return (
             <div>
                 <div className="search-books">
@@ -51,16 +60,29 @@ class Search extends React.Component {
                     <div className="search-books-results">
                         <ol className="books-grid">
 
-                            {books.length > 0 && books.map( book => (
+                            {console.log(booksInShelvesIds)}
+                            {books.length > 0 && books.map( book => {
+                                booksInShelvesIds.forEach(bookInShelf => {
+                                    if (book.id === bookInShelf.id) {
+                                        const shelf = bookInShelf.shelf;
+                                        book.shelf = shelf;
+                                    } else {
+                                        book.shelf = "none";
+                                    }
+                                })
+                                return  (
                                     <Book
-                                        key = {book.id}
-                                        book = {book}
-
-
-                                        onUpdateBookshelf = {this.props.onUpdateBookshelf}
+                                    key= {book.id}
+                                    bookId = {book.id}
+                                    book = {book}
+                                    shelf = {book.shelf}
+                                    bookAuthors = {book.authors}
+                                    bookTitle = {book.title}
+                                    bookCover = {book.imageLinks.smallThumbnail}
+                                    onUpdateBookshelf = {this.props.onUpdateBookshelf}
                                     />
                                 )
-                            )}
+                            })}
                         </ol>
                     </div>
                 </div>

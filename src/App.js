@@ -83,6 +83,7 @@ class BooksApp extends React.Component {
             <Search
               bookshelves = {this.state.bookshelves}
               books = {this.state.booksSearch}
+              booksInShelves = {this.state.booksInShelves}
               onSearchBooks = {this.searchBooks}
               onUpdateBookshelf = {this.updateBookshelf}
               onHandleClick = {this.handleClick}
