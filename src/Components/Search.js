@@ -25,15 +25,7 @@ class Search extends React.Component {
     render() {
         const { booksInShelves, books } = this.props;
         const { query } = this.state;
-        const booksInShelvesIds = booksInShelves.map( book => {
-            const id = book.id;
-            const shelf = book.shelf;
-            const bookObj = {
-                id: id,
-                shelf: shelf
-            };
-            return bookObj
-        });
+        const booksInShelvesIds = booksInShelves.map( book => ([book.id, book.shelf]));
         return (
             <div>
                 <div className="search-books">
@@ -60,22 +52,22 @@ class Search extends React.Component {
                     <div className="search-books-results">
                         <ol className="books-grid">
 
-                            {console.log(booksInShelvesIds)}
+                    
                             {books.length > 0 && books.map( book => {
+                                let shelf = "none";
                                 booksInShelvesIds.forEach(bookInShelf => {
-                                    if (book.id === bookInShelf.id) {
-                                        const shelf = bookInShelf.shelf;
-                                        book.shelf = shelf;
-                                    } else {
-                                        book.shelf = "none";
+                                    if (book.id !== bookInShelf[0]) {
+                                        return  
                                     }
-                                })
+                                    shelf = bookInShelf[1]
+                                    console.log(shelf)
+                                    })
                                 return  (
                                     <Book
                                     key= {book.id}
                                     bookId = {book.id}
                                     book = {book}
-                                    shelf = {book.shelf}
+                                    shelf = {shelf}
                                     bookAuthors = {book.authors}
                                     bookTitle = {book.title}
                                     bookCover = {book.imageLinks.smallThumbnail}
