@@ -77,6 +77,7 @@ body, .app {
 
 .search-books-bar {
   position: fixed;
+  background-color: white;
   width: 100%;
   top: 0;
   left: 0;

@@ -6,6 +6,7 @@ class Search extends React.Component {
     state = {
         query: ""
     }
+    
     handleChange = query => {
         this.setState(() => ({
             query: query.trim()
@@ -26,7 +27,10 @@ class Search extends React.Component {
                 <div className="search-books">
                     <div className="search-books-bar">
                         <Link to = "/">
-                            <button className="close-search">Close</button>
+                            <button 
+                                className="close-search"
+                                
+                            >Close</button>
                         </Link>
 
                         <form onSubmit= {this.handleSubmit}>

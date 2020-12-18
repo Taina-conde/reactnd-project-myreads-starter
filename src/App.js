@@ -23,9 +23,7 @@ class BooksApp extends React.Component {
         id: "read",
         name: "Read",
      }
-    ]
-  
-    
+    ]   
   }
 
   componentDidMount() {
@@ -34,11 +32,8 @@ class BooksApp extends React.Component {
         this.setState(() => ({
           booksInShelves
         }))
-      })
-    
+      })  
   }
- 
-
 
   searchBooks = (query) => {
     BooksAPI.search(query)
@@ -58,11 +53,7 @@ class BooksApp extends React.Component {
             booksInShelves
         }))
       })
-        
-        
-
-      })
-      
+    })     
   }
 
 
@@ -77,9 +68,10 @@ class BooksApp extends React.Component {
                 bookshelves = {this.state.bookshelves}
                 booksInShelves = {this.state.booksInShelves}
                 onUpdateBookshelf = {this.updateBookshelf}
-
               />
-              <OpenSearchButton/>
+              <OpenSearchButton
+          
+              />
             </div>
           ) }
         />
