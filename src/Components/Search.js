@@ -9,9 +9,9 @@ class Search extends React.Component {
     
     handleChange = query => {
         this.setState(() => ({
-            query: query.trim()
+            query: query
         }), () => {
-            this.state.query ? 
+            this.state.query.trim() ? 
                 this.props.onSearchBooks(this.state.query) : 
                 this.props.onEmptyBooksSearch();
         })
