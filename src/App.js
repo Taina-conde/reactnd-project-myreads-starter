@@ -55,7 +55,7 @@ class BooksApp extends React.Component {
       })
     })     
   }
-  handleClick= () => {
+  emptyBooksSearch= () => {
     this.setState({
       booksSearch : []
     })
@@ -86,7 +86,8 @@ class BooksApp extends React.Component {
               booksInShelves = {this.state.booksInShelves}
               onSearchBooks = {this.searchBooks}
               onUpdateBookshelf = {this.updateBookshelf}
-              onHandleClick = {this.handleClick}
+              onEmptyBooksSearch = {this.emptyBooksSearch}
+              onHandleClick = {this.emptyBooksSearch}
             />
           )}
         />
