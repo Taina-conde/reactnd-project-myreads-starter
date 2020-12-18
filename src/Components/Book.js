@@ -21,7 +21,9 @@ class Book extends Component {
     
     render() {
         const { book } = this.props;
-        const authors = book.authors ? book.authors : null;
+        const authors = book.authors ? 
+            book.authors :
+            null;
         const thumbnail = book.imageLinks ? book.imageLinks.smallThumbnail : null;
          
         return (
