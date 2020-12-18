@@ -14,9 +14,6 @@ function BookShelf (props) {
                             bookId = {book.id}
                             book = {book}
                             shelf = {book.shelf}
-                            bookAuthors = {book.authors}
-                            bookTitle = {book.title}
-                            bookCover = {book.imageLinks.smallThumbnail}
                             onUpdateBookshelf = {props.onUpdateBookshelf}
                           />
                       ))}

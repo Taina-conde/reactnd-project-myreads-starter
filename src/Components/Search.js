@@ -68,9 +68,6 @@ class Search extends React.Component {
                                     bookId = {book.id}
                                     book = {book}
                                     shelf = {shelf}
-                                    bookAuthors = {book.authors}
-                                    bookTitle = {book.title}
-                                    bookCover = {book.imageLinks.smallThumbnail}
                                     onUpdateBookshelf = {this.props.onUpdateBookshelf}
                                     />
                                 )
