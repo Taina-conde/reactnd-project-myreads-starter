@@ -19,6 +19,9 @@ class Search extends React.Component {
             query: ""
         })
     }
+    onHandleClick = e => {
+        this.props.onHandleClick(e);
+    }
     render() {
         const { books } = this.props;
         const { query } = this.state;
@@ -26,7 +29,7 @@ class Search extends React.Component {
             <div>
                 <div className="search-books">
                     <div className="search-books-bar">
-                        <Link to = "/">
+                        <Link to = "/" onClick = {this.onHandleClick}>
                             <button 
                                 className="close-search"
                                 

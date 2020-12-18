@@ -55,7 +55,11 @@ class BooksApp extends React.Component {
       })
     })     
   }
-
+  handleClick= () => {
+    this.setState({
+      booksSearch : []
+    })
+  }
 
   render() {
     return (
@@ -69,9 +73,7 @@ class BooksApp extends React.Component {
                 booksInShelves = {this.state.booksInShelves}
                 onUpdateBookshelf = {this.updateBookshelf}
               />
-              <OpenSearchButton
-          
-              />
+              <OpenSearchButton/>
             </div>
           ) }
         />
@@ -83,6 +85,7 @@ class BooksApp extends React.Component {
               books = {this.state.booksSearch}
               onSearchBooks = {this.searchBooks}
               onUpdateBookshelf = {this.updateBookshelf}
+              onHandleClick = {this.handleClick}
             />
           )}
         />
