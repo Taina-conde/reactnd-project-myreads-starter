@@ -16,7 +16,13 @@ class Search extends React.Component {
                 this.props.onEmptyBooksSearch();
         })
     }
-
+    handleSubmit = e =>{
+        e.preventDefault();
+        this.state.query && this.props.onSearchBooks(this.state.query);
+        this.setState({
+            query: ""
+        });
+    }
  
     onHandleClick = e => {
         this.props.onHandleClick(e);
@@ -36,7 +42,7 @@ class Search extends React.Component {
                             >Close</button>
                         </Link>
 
-                        <form>
+                        <form onSubmit = {this.handleSubmit}>
                             <div className="search-books-input-wrapper">
                                 <input 
                                     type="text" 
