@@ -1,10 +1,8 @@
 import React from 'react';
 import BookShelf from './BookShelf';
 
-class ListShelves extends React.Component {
-  
-    render() {
-      const {booksInShelves, bookshelves} = this.props;
+function ListShelves(props) {
+      const {booksInShelves, bookshelves} = props;
         return (
             <div>
               <div className="list-books">
@@ -22,18 +20,14 @@ class ListShelves extends React.Component {
                         key = {index}
                         bookshelfTitle = {bookshelf.name}
                         bookshelfBooks = {booksInShelf}
-                        onUpdateBookshelf = {this.props.onUpdateBookshelf}
+                        onUpdateBookshelf = {props.onUpdateBookshelf}
                       />
                     )
                     })}
                 </div>
-              </div>
-  
-        
-                
+              </div>                
             </div>
-        
         )
-    }
+    
 }
 export default ListShelves;
