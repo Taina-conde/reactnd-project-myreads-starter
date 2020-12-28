@@ -9,7 +9,7 @@ You can also add more books to your library. To do so, click the button on the b
 To get started using this App:
 
 * fork and clone this repository
-* run npm install -g create-react-app
+* run `npm install -g create-react-app`
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
