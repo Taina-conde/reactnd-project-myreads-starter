@@ -9,6 +9,7 @@ You can also add more books to your library. To do so, click the button on the b
 To get started using this App:
 
 * clone this repository
+* `cd udacity-react-MyReads`
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
